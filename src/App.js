@@ -18,7 +18,9 @@ const [learners, setLearners] = useState(learnerData)
         <li key={learner.name}>
           Name: {learner.name}
           <br></br>
-          Bio: {learner.bio}
+          Bio:
+          <br></br> 
+          {learner.bio}
           <br></br>
           Scores: {learner.scores.map(score => ( <ul>
             <li> 
