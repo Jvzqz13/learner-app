@@ -2,6 +2,7 @@ import './App.css';
 import { learnerData } from './data/learnerData';
 
 import { useState } from 'react'
+import { Container } from './style/styled';
 
 
 function App() {
@@ -9,31 +10,33 @@ function App() {
 const [learners, setLearners] = useState(learnerData)
 
   return (
-    <div className="App">
-      <h1>Learner App</h1>
+    <Container>
+      <div className="App">
+        <h1>Learner App</h1>
 
-      {learners.map(learner => 
-        <ul> 
+        {learners.map(learner => 
+          <ul> 
 
-        <li key={learner.name}>
-          Name: {learner.name}
-          <br></br>
-          Bio:
-          <br></br> 
-          {learner.bio}
-          <br></br>
-          Scores: {learner.scores.map(score => ( <ul>
-            <li> 
-             Date: {score.date}, Score: {score.score}
-            </li>
+          <li key={learner.name}>
+            <span> Name: </span> {learner.name}
+            <br></br>
+            <span>Bio:</span>
+            <br></br> 
+            {learner.bio}
+            <br></br>
+            <span>Scores: </span> {learner.scores.map(score => ( <ul>
+              <li> 
+              <span>Date: </span> {score.date}, <span>Score: </span> {score.score}
+              </li>
+            </ul>
+            ) )}
+
+          </li>
+
           </ul>
-          ) )}
-
-        </li>
-
-        </ul>
-      )}
-    </div>
+        )}
+      </div>
+    </Container>
   );
 }
 
